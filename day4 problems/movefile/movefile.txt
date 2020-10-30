@@ -1,0 +1,15 @@
+#!/bin/bash
+for file in 'ls*.txt'
+do
+		basename='echo $file | awk -F . '{ print $1}''
+		if [ -d $basename ]
+		then 
+				mv $file $basename
+				echo $file move to the $basename
+		else
+				mkdir $basename 
+				echo created $basename
+				mv $file $basename
+				echo $file moved to $basename
+		fi
+done
